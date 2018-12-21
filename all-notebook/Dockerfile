@@ -20,11 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends unzip \
 # Switch user back.
 USER $NB_UID
 
-# Install base packages for the v1.0 environment
-RUN julia -e "using Pkg; pkg\"add Expectations Compat Interpolations Revise REPL QuantEcon InstantiateFromURL Plots GR Parameters Distributions\"; pkg\"build\"; pkg\"precompile\""
-
-# Tagged version of QELP
+# Tagged version of QELAP
 RUN julia -e "using InstantiateFromURL; activate_github(\"QuantEcon/QuantEconLectureAllPackages\", tag = \"${PACKAGEVERSION}\")"
 
-# Master QELP
+# Master QELAP
 RUN julia -e "using InstantiateFromURL; activate_github(\"QuantEcon/QuantEconLectureAllPackages\")"

@@ -1,6 +1,0 @@
-proxy:
-  secretToken: "SECRET_HERE"
-singleuser:
-  image:
-    name: quantecon/base
-    tag: jupyterhub2
